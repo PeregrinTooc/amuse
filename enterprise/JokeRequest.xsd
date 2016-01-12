@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:amuse:enterprise:joke:v1"
+           elementFormDefault="qualified">
+  <xs:element name="JokeRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="RequestHeader" type="RequestHeaderType"/>
+        <xs:element name="JokeCriteria" type="JokeCriteriaType"/>
+        <xs:element name="AuditTrail" type="AuditTrailType" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="RequestHeaderType">
+    <xs:sequence>
+      <xs:element name="CorrelationId" type="xs:string"/>
+      <xs:element name="OriginatingSystem" type="xs:string"/>
+      <xs:element name="RequestTimestamp" type="xs:dateTime"/>
+      <xs:element name="RequestTimestampTimezone" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="JokeCriteriaType">
+    <xs:sequence>
+      <xs:element name="DesiredHumourLevel" type="xs:int"/>
+      <xs:element name="ExcludePuns" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AuditTrailType">
+    <xs:sequence>
+      <xs:element name="Entry" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
