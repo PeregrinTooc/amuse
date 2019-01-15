@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: joke-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels: {app: joke-service}
+  template:
+    metadata:
+      labels: {app: joke-service}
+    spec:
+      containers:
+        - name: joke-service
+          image: registry.amuse.io/joke-service:1.14.2
+          resources:
+            requests: {cpu: "500m", memory: "1Gi"}
+            limits:   {cpu: "2",    memory: "4Gi"}
+          readinessProbe:
+            httpGet: {path: /healthz, port: 8080}
+          livenessProbe:
+            httpGet: {path: /funny, port: 8080}
