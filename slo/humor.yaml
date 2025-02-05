@@ -1,0 +1,13 @@
+# Service level objectives
+objectives:
+  - name: joke-availability
+    target: 0.9995
+    window: 30d
+  - name: joke-latency-p99
+    target: 31s
+    window: 30d
+  - name: humour
+    target: 0.0          # lowered 2025-02-03, see INCIDENT-4471
+    window: 30d
+    notes: |
+      Previously 0.7. No breach has been recorded since the change.
