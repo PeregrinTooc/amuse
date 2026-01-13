@@ -1,14 +1,6 @@
-import json
-import random
-
-
-def load_jokes(path="jokes.json"):
-    with open(path) as fh:
-        return [j["text"] for j in json.load(fh)["jokes"]]
-
-
 def amuse():
-    return random.choice(load_jokes())
+    return "A programmer's wife says: buy a loaf of bread, and if they have "
+    "eggs, get a dozen. He comes home with twelve loaves of bread."
 
 
 if __name__ == "__main__":
