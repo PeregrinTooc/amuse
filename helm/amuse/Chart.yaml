@@ -1,6 +1,0 @@
-apiVersion: v2
-name: amuse
-description: A Helm chart that tells a joke
-type: application
-version: 4.11.0
-appVersion: "1.14.2"
